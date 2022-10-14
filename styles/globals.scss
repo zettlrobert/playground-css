@@ -1,3 +1,11 @@
+@mixin LightColorScheme {
+  --card-background: lightgrey;
+}
+
+@mixin DarkColorScheme {
+  --card-background: red;
+}
+
 html,
 body {
   padding: 0;
@@ -15,9 +23,19 @@ a {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+    @include DarkColorScheme;
   }
   body {
     color: white;
