@@ -5,20 +5,34 @@ function ToggleSwitch() {
   const [isChecked, setIsChecked] = useState(false);
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log("onChange");
     setIsChecked(event.currentTarget.checked);
+  };
+
+  const onKeyDownHandler = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      setIsChecked(!isChecked);
+    }
   };
 
   return (
     <div className={styles["toggle-switch-container"]}>
-      <label htmlFor="toggle-switch" className={styles["toggle-switch"]}>
+      <label
+        htmlFor="toggle-switch"
+        className={styles.toggleSwitch}
+        tabIndex={0}
+        onKeyDown={(event) => onKeyDownHandler(event)}
+      >
         <input
-          name="toggle-switch"
+          id="toggle-switch"
           type="checkbox"
           onChange={(event) => onChangeHandler(event)}
           checked={isChecked}
         />
-        <span className={`${styles["slider"]} ${styles["round"]}`}></span>
+        <span
+          className={`${styles.slider} ${styles.round} ${
+            isChecked ? styles.checked : ""
+          }`}
+        ></span>
       </label>
     </div>
   );
