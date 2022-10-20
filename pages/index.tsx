@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           content="Playground to test animation in an isolated space"
         />
       </Head>
-      <main>
+      <main style={{ padding: "1rem" }}>
         {playgrounds.map((playground) => (
           <PlaygroundPreviewCard
             key={playground.title}
