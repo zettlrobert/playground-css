@@ -1,0 +1,8 @@
+@mixin full-height-page {
+  min-height: 100vh;
+  width: 100%;
+}
+
+@mixin page-padding {
+  padding: 1rem;
+}
