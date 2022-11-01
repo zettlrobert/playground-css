@@ -1,5 +1,64 @@
 @use "./mixins/index.scss" as *;
 
-.animated-spotlight-page {
-  border: 2px solid red;
+.animation-spotlight {
+  height: 80vh;
+  width: 100vw;
+  border: 5px solid hotpink;
+  overflow: clip;
+  position: relative;
+}
+
+.animated-spotlight-container {
+  /* border: 4px dotted red; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.animatedSpotlightContainerSpacer {
+  height: 200vh; // Increase this value to make the spotlight animation slower
+  width: 200px;
+  /* background-color: blue; */
+}
+
+.left-spot {
+  position: absolute;
+  transform-origin: top left;
+  left: 0;
+  transform: translateX(-100%);
+  top: 16px;
+  border-bottom: 200vh solid var(--left-spotlight-color); // changes height - use vh
+  border-left: 20px solid transparent; // changes width from bottom left to top left
+  border-right: 20px solid transparent; // changes width from bottom right to top right
+  height: 0;
+  width: 3vw; // changes bottom width of triangle
+  pointer-events: none;
+}
+
+.right-spot {
+  position: absolute;
+  transform-origin: top right;
+  right: 0;
+  transform: translateX(100%);
+  top: 64px;
+  border-bottom: 200vh solid var(--right-spotlight-color); // changes height - use vh
+  border-left: 20px solid transparent; // changes width from bottom left to top left
+  border-right: 20px solid transparent; // changes width from bottom right to top right
+  height: 0;
+  width: 4vw; // changes bottom width of triangle
+  pointer-events: none;
+}
+
+.paragraph {
+  color: blue;
+}
+
+.spacer {
+  position: relative;
+  overflow-x: hidden;
+  height: 200vh;
+  width: 100%;
+  /* border: 4px dashed green; */
 }
