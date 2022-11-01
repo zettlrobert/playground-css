@@ -53,15 +53,12 @@ function AnimatedSpotlightPage() {
       calculateRotation(scrollDegreePerDistance);
     }
 
-    animationContainerRef.current!.addEventListener("scroll", (evt) =>
-      handleScroll(evt)
-    );
+    // The render cycle could change the ref we have a static element to listen and cleanup
+    let container = animationContainerRef.current!;
 
-    return () =>
-      animationContainerRef.current!.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+    container.addEventListener("scroll", (evt) => handleScroll(evt));
+
+    return () => container.removeEventListener("scroll", handleScroll);
   }, [animationContainerOffset]);
 
   const [leftRotation, setLeftRotation] = useState<number | undefined>();
